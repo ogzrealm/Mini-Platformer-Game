@@ -24,8 +24,8 @@ TagManager:
   - Doorway
   - EnemiesBarrier
   - Elevator
-  - 
-  - 
+  - Lever
+  - Dungeon Door
   - 
   - 
   - 
@@ -58,6 +58,9 @@ TagManager:
     locked: 0
   - name: Ladder
     uniqueID: 1652530013
+    locked: 0
+  - name: Dungeon Door
+    uniqueID: 350348841
     locked: 0
   - name: Elevator
     uniqueID: 3119423957
