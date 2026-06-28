@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Background
+  - Platform
+  - Ladder
+  - 
+  - Player
+  - Enemies
+  - Bullet
+  - Coin
+  - Spikes
+  - Mushroom
+  - Doorway
+  - EnemiesBarrier
+  - Elevator
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2638294027
+    locked: 0
+  - name: Water
+    uniqueID: 1180448865
+    locked: 0
+  - name: Doorway
+    uniqueID: 2330672029
+    locked: 0
+  - name: Mushroom
+    uniqueID: 2585504595
+    locked: 0
+  - name: Platform
+    uniqueID: 4058835715
+    locked: 0
+  - name: Ladder
+    uniqueID: 1652530013
+    locked: 0
+  - name: Elevator
+    uniqueID: 3119423957
+    locked: 0
+  - name: Coin
+    uniqueID: 1745476229
+    locked: 0
+  - name: Enemies
+    uniqueID: 589047245
+    locked: 0
+  - name: Spikes
+    uniqueID: 3119119693
+    locked: 0
+  - name: Bullet
+    uniqueID: 1406211933
+    locked: 0
+  - name: Player
+    uniqueID: 4032976647
+    locked: 0
+  m_RenderingLayers:
+  - Default
+  m_MigratedRenderPipelines: []
