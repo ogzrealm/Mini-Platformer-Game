@@ -1554,6 +1554,10 @@ PrefabInstance:
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 1617025127}
+    - target: {fileID: 7009692654353952813, guid: a8f496456e396b04cb8ae323866a60b3, type: 3}
+      propertyPath: checkpointText
+      value: 
+      objectReference: {fileID: 4855576694389890970}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2039,6 +2043,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7537530684986873993, guid: 53463b018c61ab84cbc5dcd97202821a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8123290528869193148, guid: 53463b018c61ab84cbc5dcd97202821a, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -2052,6 +2060,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53463b018c61ab84cbc5dcd97202821a, type: 3}
+--- !u!114 &4855576694389890970 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1228100983423423007, guid: 53463b018c61ab84cbc5dcd97202821a, type: 3}
+  m_PrefabInstance: {fileID: 4855576694389890969}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &6283661645082122156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2121,6 +2140,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers
       objectReference: {fileID: 0}
+    - target: {fileID: 5997992503307345855, guid: aad1fb40752a4fb4aa97c9670b43899f, type: 3}
+      propertyPath: leverSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 22c38db2b0a489f41b295c943d24e1e7, type: 3}
+    - target: {fileID: 5997992503307345855, guid: aad1fb40752a4fb4aa97c9670b43899f, type: 3}
+      propertyPath: checkPointSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 35fe95e63d7fd1b42a573ebcbad3ccf0, type: 3}
     - target: {fileID: 6473688389280081415, guid: aad1fb40752a4fb4aa97c9670b43899f, type: 3}
       propertyPath: livesText
       value: 
