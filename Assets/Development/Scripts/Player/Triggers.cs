@@ -18,7 +18,7 @@ public class Triggers : MonoBehaviour
     
     private CinemachineShake[]  myCameraShake;
 
-    private bool isTriggered = false;
+    [HideInInspector] public bool isTriggered = false;
 
     private void Start()
     {
@@ -35,13 +35,18 @@ public class Triggers : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if(isTriggered) return;
         if (other.gameObject.layer == LayerMask.NameToLayer("Water"))
         {
+            GameManager.instance.DeathState();
             StartCoroutine(drownEffect());
+            isTriggered = true;
         }
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemies"))
         {
+            isTriggered = true;
+            GameManager.instance.DeathState();
             playerMovement.canMove = false;
             PlayerAudio.instance.PlayDeathSound();
             foreach (var shake in myCameraShake)
@@ -58,6 +63,8 @@ public class Triggers : MonoBehaviour
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Spikes"))
         {
+            isTriggered = true;
+            GameManager.instance.DeathState();
             if (!ObjectsAudio.instance.GetComponent<AudioSource>().isPlaying)
             {
                 ObjectsAudio.instance.PlaySpikeSound();
@@ -103,11 +110,10 @@ public class Triggers : MonoBehaviour
         myAnimator.SetBool("isRunning", false);
         playerMovement.canMove = false;
         ObjectsAudio.instance.PlayDrowningSound();
-        yield return new WaitForSecondsRealtime(2f);
+        yield return new WaitForSecondsRealtime(0.8f);
         myAnimator.SetTrigger("Dying");
         ObjectsAudio.instance.StopDrowningSound();
-        yield return new WaitForSecondsRealtime(0.8f);
-        GameManager.instance.DeathState();
+        yield return new WaitForSecondsRealtime(0.2f);
     }
 
     IEnumerator DisableFollowCameras()
@@ -115,7 +121,6 @@ public class Triggers : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         stateDrivenCamera.GetComponent<CinemachineStateDrivenCamera>().enabled = false;
         yield return new WaitForSecondsRealtime(1.5f);
-        GameManager.instance.DeathState();
     }
     
     

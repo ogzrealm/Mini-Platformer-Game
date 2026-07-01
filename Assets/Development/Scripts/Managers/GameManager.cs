@@ -1,11 +1,26 @@
+using System;
+using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    [SerializeField] private int lives=3;
+    [SerializeField] private int lives=5;
     private bool isDead = false;
+    
+    [SerializeField] private Transform respawnPoint;
+    [SerializeField] private Transform playerLocation;
+    
+    
+    [SerializeField] private Animator playerAnimator;
+    [SerializeField] private BoxCollider2D playerCollider;
+    [SerializeField] private CapsuleCollider2D playerCollider2;
+    [SerializeField] private CinemachineStateDrivenCamera playerCamera;
+    
+    private PlayerMovement playerMovement;
+    private Triggers triggers;
 
     private void Awake()
     {
@@ -16,7 +31,12 @@ public class GameManager : MonoBehaviour
         }
 
         instance = this;
-        DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        playerMovement=FindAnyObjectByType<PlayerMovement>();
+        triggers=FindAnyObjectByType<Triggers>();
     }
 
     private void OnEnable()
@@ -48,23 +68,35 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            resetGameSystem();
-            lives = 3;
+            StartCoroutine(ResetGame());
         }
+        
     }
 
     void TakeLife()
     {
         lives--;
         UIManager.instance.HowManyLives(lives);
-        int currentScene = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentScene);
-        
+        StartCoroutine(Respawn());
     }
 
-    void resetGameSystem()
+    IEnumerator Respawn()
     {
-        lives = 3;
+        yield return new WaitForSeconds(2.5f);
+        playerAnimator.ResetTrigger("Dying");
+        playerCollider.enabled = true;
+        playerCollider2.enabled = true;
+        playerLocation.position = respawnPoint.position;
+        playerMovement.canMove = true;
+        playerAnimator.Play("Idling");
+        playerCamera.enabled = true;
+        triggers.isTriggered = false;
+    }
+
+    private IEnumerator ResetGame()
+    {
+        UIManager.instance.HowManyLives(0);
+        yield return new WaitForSeconds(2.5f);
         SceneManager.LoadScene(0);
     }
     

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class ObjectsAudio : MonoBehaviour
@@ -8,6 +7,7 @@ public class ObjectsAudio : MonoBehaviour
     private AudioSource audioSource;
     
     [SerializeField] private AudioClip drowningSound, spikeSound;
+    [SerializeField] private AudioClip leverSound;
     
     private void Awake()
     {
@@ -39,6 +39,10 @@ public class ObjectsAudio : MonoBehaviour
     {
         audioSource.PlayOneShot(spikeSound);
     }
-    
-    
- }
+
+    public void PlayLeverSound()
+    {
+        audioSource.PlayOneShot(leverSound);
+
+    }
+}

@@ -28,10 +28,10 @@ public class UIManager : MonoBehaviour
     {
         score += addingScore;
         scoreText.text = "Score: "+score.ToString();
-        StartCoroutine(ScoreEffect());
+        StartCoroutine(UIEffect());
     }
 
-    IEnumerator ScoreEffect()
+    IEnumerator UIEffect()
     {
         Vector2 currentScale=scoreText.rectTransform.localScale;
         scoreText.rectTransform.localScale =currentScale * 0.5f;
@@ -43,6 +43,7 @@ public class UIManager : MonoBehaviour
     public void HowManyLives(int lives)
     {
         howManyLives=lives;
+        StartCoroutine(UIEffect());
         livesText.text = "Lives: "+howManyLives.ToString();
     }
 }

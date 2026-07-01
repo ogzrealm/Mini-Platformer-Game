@@ -26,7 +26,7 @@ TagManager:
   - Elevator
   - Lever
   - Dungeon Door
-  - 
+  - Checkpoint
   - 
   - 
   - 
@@ -52,6 +52,9 @@ TagManager:
     locked: 0
   - name: Mushroom
     uniqueID: 2585504595
+    locked: 0
+  - name: Checkpoint
+    uniqueID: 2521220799
     locked: 0
   - name: Platform
     uniqueID: 4058835715
