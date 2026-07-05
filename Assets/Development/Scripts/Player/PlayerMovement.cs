@@ -32,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
     {
         moveAction=InputSystem.actions.FindAction("Move");
         jumpAction=InputSystem.actions.FindAction("Jump");
-        attackAction=InputSystem.actions.FindAction("Attack");
     }
     private void Start()
     {
@@ -46,13 +45,11 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         jumpAction.performed += Jump;
-        attackAction.performed += Attack;
     }
 
     private void OnDisable()
     {
         jumpAction.performed -= Jump;
-        attackAction.performed -= Attack;
     }
     
     private void FixedUpdate()
@@ -130,11 +127,5 @@ public class PlayerMovement : MonoBehaviour
         }
         
     }
-
-    private void Attack(InputAction.CallbackContext context)
-    {
-        PlayerAudio.instance.PlayFireSound();
-        myAnimator.SetTrigger("Firing");
-        Instantiate(bulletPrefab,firePoint.position, Quaternion.identity);
-    }
+    
 }

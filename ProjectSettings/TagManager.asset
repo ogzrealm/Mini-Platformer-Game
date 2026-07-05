@@ -56,6 +56,9 @@ TagManager:
   - name: Checkpoint
     uniqueID: 2521220799
     locked: 0
+  - name: GameText
+    uniqueID: 1710171527
+    locked: 0
   - name: Platform
     uniqueID: 4058835715
     locked: 0
