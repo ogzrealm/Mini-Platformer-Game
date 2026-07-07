@@ -6,7 +6,7 @@ public class MenuManager : MonoBehaviour
 {
     private AudioSource audioSource;
     
-    [SerializeField] private AudioClip playSound, quitSound;
+    [SerializeField] private AudioClip playSound, quitSound, creditsSound;
 
     private void Start()
     {
@@ -35,5 +35,16 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         Application.Quit();
     }
-    
+
+    public void CreditsButton()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
+    private IEnumerator CreditsCoroutine()
+    {
+        audioSource.PlayOneShot(creditsSound);
+        yield return new WaitForSeconds(0.4f);
+        SceneManager.LoadScene("Credits");
+    }
 }

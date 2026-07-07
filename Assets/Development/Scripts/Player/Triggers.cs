@@ -85,7 +85,11 @@ public class Triggers : MonoBehaviour
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Doorway"))
         {
+            playerMovement.canMove = false;
             playerCollider.enabled = false;
+            myRigidbody2D.linearVelocity = Vector3.zero;
+            myAnimator.enabled = false;
+            playerMovement.enabled = false;
             GameManager.instance.NextLevel();
         }
     }

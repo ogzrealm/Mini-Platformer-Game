@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     private PlayerMovement playerMovement;
     private Triggers triggers;
 
+    private AudioSource audiosource;
+
     private void Awake()
     {
         if (instance != null )
@@ -35,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        audiosource = GetComponent<AudioSource>();
         playerMovement=FindAnyObjectByType<PlayerMovement>();
         triggers=FindAnyObjectByType<Triggers>();
     }
@@ -56,6 +59,14 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
+        StartCoroutine(NextLevelCoroutine());
+    }
+
+    private IEnumerator NextLevelCoroutine()
+    {
+        audiosource.Stop();
+        ObjectsAudio.instance.PlayerLevelCompleteSound();
+        yield return new WaitForSecondsRealtime(3f);
         int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(nextScene);
     }
@@ -97,7 +108,7 @@ public class GameManager : MonoBehaviour
     {
         UIManager.instance.HowManyLives(0);
         yield return new WaitForSeconds(2.5f);
-        SceneManager.LoadScene(0);
+        UIManager.instance.OpentoPanel();
     }
     
 }

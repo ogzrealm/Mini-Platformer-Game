@@ -9,6 +9,7 @@ public class ObjectsAudio : MonoBehaviour
     [SerializeField] private AudioClip drowningSound, spikeSound;
     [SerializeField] private AudioClip leverSound;
     [SerializeField] private AudioClip checkPointSound;
+    [SerializeField] private AudioClip levelCompleteSound;
     
     private void Awake()
     {
@@ -50,5 +51,10 @@ public class ObjectsAudio : MonoBehaviour
     public void PlayCheckPointSound()
     {
         audioSource.PlayOneShot(checkPointSound);
+    }
+    
+    public void PlayerLevelCompleteSound()
+    {
+        audioSource.PlayOneShot(levelCompleteSound);
     }
 }
